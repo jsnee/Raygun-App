@@ -14,5 +14,6 @@
     <string name="title_activity_shop">Raygun Store</string>
     <string name="action_shop">Store</string>
     <string name="post_1_title">Post 1</string>
+    <string name="title_activity_take_picture">TakePicture</string>
 
 </resources>

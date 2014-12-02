@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-permission android:name="android.permission.INTERNET" />
-    
+
     <uses-sdk
         android:minSdkVersion="19"
         android:targetSdkVersion="19" />
@@ -44,6 +44,10 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.drake.raygun.MainActivity" />
+        </activity>
+        <activity
+            android:name=".TakePicture"
+            android:label="@string/title_activity_take_picture" >
         </activity>
     </application>
 

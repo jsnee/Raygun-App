@@ -120,6 +120,11 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 		Intent intent = new Intent(this, ShopActivity.class);
 		startActivity(intent);
 	}
+	
+	private void startCam() {
+		Intent intent = new Intent(this, TakePicture.class);
+		startActivity(intent);
+	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -132,6 +137,10 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 		} else if (id == R.id.action_shop) {
 			showStore();
 		}
+		else if (id == R.id.addPic) {
+			startCam();
+		}
+		
 		return super.onOptionsItemSelected(item);
 	}
 
