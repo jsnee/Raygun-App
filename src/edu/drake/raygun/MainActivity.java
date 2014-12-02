@@ -6,9 +6,11 @@ import java.util.Locale;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Point;
@@ -20,9 +22,11 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -37,6 +41,8 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 	 */
 	SectionsPagerAdapter mSectionsPagerAdapter;
 	protected static PostListAdapter hotPostAdapter, newPostAdapter, topPostAdapter;
+
+	final Context context = this; 
 
 	/**
 	 * The {@link ViewPager} that will host the section contents.
@@ -59,7 +65,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 		// Set up the ViewPager with the sections adapter.
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
-		
+
 		loadPosts();
 
 		// When swiping between different sections, select the corresponding
@@ -84,13 +90,13 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 					.setTabListener(this));
 		}
 	}
-	
+
 	private void loadPosts() {
-		
+
 		Display display = getWindowManager().getDefaultDisplay();
 		Point size = new Point();
 		display.getSize(size);
-		
+
 		List<PostEntry> posts = new ArrayList<PostEntry>();
 		Bitmap postImage = PostEntry.decodeSampledBitmapFromResource(getResources(), R.drawable.post_1, size.x, size.y);
 		float[] geoLoc = { 3.0f, 4.5f };
@@ -99,7 +105,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 		postImage = PostEntry.decodeSampledBitmapFromResource(getResources(), R.drawable.post_2, size.x, size.y);
 		post = new PostEntry(postImage, "Don't Run Me Over", 5, geoLoc, "GENERIC_USERNAME");
 		posts.add(post);
-		
+
 		hotPostAdapter = new PostListAdapter(this, posts);
 	}
 
@@ -216,7 +222,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 			View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 			Bundle args = this.getArguments();
 			int sectionNumber = args.getInt(ARG_SECTION_NUMBER);
-			
+
 			switch (sectionNumber) {
 			case 1:
 				ListView postList = (ListView) rootView.findViewById(R.id.listView1);
@@ -232,12 +238,33 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 			return rootView;
 		}
 	}
-	
+
 	private OnItemClickListener getPostListener() {
 		return new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				String selectedPostTitle = ((TextView) view.findViewById(R.id.postEntryTitle)).getText().toString();
+
+				//Popup up and down votes
+
+				Dialog dialog = new Dialog(context, R.style.FullHeightDialog);			
+				dialog.setContentView(R.layout.like_dialog);
+				dialog.show();
+
+				ImageButton upVote = (ImageButton) dialog.findViewById(R.id.upVote);
+
+				upVote.setOnClickListener( new OnClickListener(){
+					public void onClick(View view){
+						//code to increment votes
+					}
+				});
+
+				ImageButton downVote = (ImageButton) dialog.findViewById(R.id.downVote);
+				downVote.setOnClickListener( new OnClickListener(){
+					public void onClick(View view){
+						//code to increment votes
+					}
+				});
 			}
 		};
 	}

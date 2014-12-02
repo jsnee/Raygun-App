@@ -41,7 +41,7 @@ public class SplashscreenActivity extends Activity {
 	}
 	
 	public void openMainActivity() {
-		startActivity(new Intent(this, LoginActivity.class));
+		startActivity(new Intent(this, MainActivity.class));
 	}
 
 	@Override
