@@ -43,6 +43,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 	protected static PostListAdapter hotPostAdapter, newPostAdapter, topPostAdapter;
 
 	final Context context = this; 
+	protected static Dialog dialog;
 
 	/**
 	 * The {@link ViewPager} that will host the section contents.
@@ -56,6 +57,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 
 		// Set up the action bar.
 		final ActionBar actionBar = getActionBar();
+		dialog = new Dialog(context, R.style.FullHeightDialog);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
 		// Create the adapter that will return a fragment for each of the three
@@ -236,6 +238,31 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 			case 1:
 				ListView postList = (ListView) rootView.findViewById(R.id.listView1);
 				postList.setAdapter(hotPostAdapter);
+				postList.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				String selectedPostTitle = ((TextView) view.findViewById(R.id.postEntryTitle)).getText().toString();
+
+				//Popup up and down votes		
+				dialog.setContentView(R.layout.like_dialog);
+				dialog.show();
+
+				ImageButton upVote = (ImageButton) dialog.findViewById(R.id.upVote);
+
+				upVote.setOnClickListener( new OnClickListener(){
+					public void onClick(View view){
+						//code to increment votes
+					}
+				});
+
+				ImageButton downVote = (ImageButton) dialog.findViewById(R.id.downVote);
+				downVote.setOnClickListener( new OnClickListener(){
+					public void onClick(View view){
+						//code to increment votes
+					}
+				});
+			}
+		});
 				break;
 			case 2:
 				break;
@@ -248,15 +275,14 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 		}
 	}
 
-	private OnItemClickListener getPostListener() {
+	protected static OnItemClickListener getPostListener() {
 		return new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				String selectedPostTitle = ((TextView) view.findViewById(R.id.postEntryTitle)).getText().toString();
 
 				//Popup up and down votes
-
-				Dialog dialog = new Dialog(context, R.style.FullHeightDialog);			
+			
 				dialog.setContentView(R.layout.like_dialog);
 				dialog.show();
 
