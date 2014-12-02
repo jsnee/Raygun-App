@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="postBody">#FF8000</color>
+    <color name="usernameStart">#000000</color>
+    <color name="usernameEnd">#AAAAAA</color>
+    <color name="usernameCenter">#555555</color>
+    <color name="votesBody">#FFFFFF</color>
+</resources>

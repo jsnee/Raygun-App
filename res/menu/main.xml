@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="edu.drake.raygun.MainActivity" >
+
+    <item android:id="@+id/addPic"
+          android:icon="@drawable/small35"
+          android:title="addPic"
+          android:showAsAction="always" />
+    <item android:id="@+id/map"
+       	  android:icon="@drawable/international12"
+          android:title="map"
+          android:showAsAction="always" />
+    <item
+        android:id="@+id/action_shop"
+        android:icon="@drawable/shopping4"
+        android:showAsAction="ifRoom"
+        android:title="@string/action_shop"/>
+
+</menu>

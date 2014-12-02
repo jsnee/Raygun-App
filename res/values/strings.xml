@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Raygun</string>
+    <string name="title_section1">HOT</string>
+    <string name="title_section2">NEW</string>
+    <string name="title_section3">TOP</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_login">Sign In</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_splashscreen">Raygun</string>
+    <string name="splashscreen">Here is the Splashscreen!</string>
+    <string name="title_activity_shop">Raygun Store</string>
+    <string name="action_shop">Store</string>
+    <string name="post_1_title">Post 1</string>
+
+</resources>
