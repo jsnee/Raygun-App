@@ -127,6 +127,10 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 		Intent intent = new Intent(this, TakePicture.class);
 		startActivity(intent);
 	}
+	private void startMap(){
+		Intent intent = new Intent(this, MapActivity.class);
+		startActivity(intent);
+	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -141,6 +145,9 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 		}
 		else if (id == R.id.addPic) {
 			startCam();
+		}
+		else if (id == R.id.map){
+			startMap();
 		}
 		
 		return super.onOptionsItemSelected(item);
