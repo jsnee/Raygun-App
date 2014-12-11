@@ -125,6 +125,11 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 		startActivity(intent);
 	}
 	
+	private void startProfile() {
+		Intent intent = new Intent(this, ProfileActivity.class);
+		startActivity(intent);
+	}
+	
 	private void startCam() {
 		Intent intent = new Intent(this, AddPicture.class);
 		startActivity(intent);
@@ -150,6 +155,9 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 		}
 		else if (id == R.id.map){
 			startMap();
+		}
+		else if (id == R.id.profile){
+			startProfile();
 		}
 		
 		return super.onOptionsItemSelected(item);
