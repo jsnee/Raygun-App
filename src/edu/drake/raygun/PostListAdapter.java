@@ -40,19 +40,31 @@ public class PostListAdapter extends BaseAdapter {
 	            inflater = (LayoutInflater) activity
 	                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	        if (convertView == null)
-	            convertView = inflater.inflate(R.layout.post_listitem, null);
+	            convertView = inflater.inflate(R.layout.feed_item, null);
 	        
+	        ImageView profilePic = (ImageView) convertView.findViewById(R.id.profilePic);
+	        TextView timestamp = (TextView) convertView.findViewById(R.id.timestamp);
+	        TextView name = (TextView) convertView.findViewById(R.id.name);
+	        TextView postMessage = (TextView) convertView.findViewById(R.id.txtStatusMsg);
+	        ImageView postImage = (ImageView) convertView.findViewById(R.id.feedImage1);
+	        
+	        PostEntry post = posts.get(position);
+	        
+	        /*
 	        ImageView imageView = (ImageView) convertView.findViewById(R.id.postEntryImage);
 	        TextView postTitle = (TextView) convertView.findViewById(R.id.postEntryTitle);
 	        TextView postUser = (TextView) convertView.findViewById(R.id.postUsername);
 	        TextView postVotes = (TextView) convertView.findViewById(R.id.postEntryVotes);
-	        
-	        PostEntry post = posts.get(position);
 	         
 	        imageView.setImageBitmap(post.getImage());
 	        postTitle.setText(post.getTitle());
 	        postUser.setText(" " + post.getUsername() + " ");
 	        postVotes.setText("" + post.getVotes());
+	        */
+	        
+	        postImage.setImageBitmap(post.getImage());
+	        postMessage.setText(post.getTitle());
+	        name.setText(post.getUsername());
 	 
 	        return convertView;
 	    }
