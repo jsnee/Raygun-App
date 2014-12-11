@@ -126,7 +126,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 	}
 	
 	private void startCam() {
-		Intent intent = new Intent(this, TakePicture.class);
+		Intent intent = new Intent(this, AddPicture.class);
 		startActivity(intent);
 	}
 	private void startMap(){
