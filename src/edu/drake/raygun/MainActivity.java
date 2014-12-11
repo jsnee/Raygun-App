@@ -101,11 +101,13 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 
 		List<PostEntry> posts = new ArrayList<PostEntry>();
 		Bitmap postImage = PostEntry.decodeSampledBitmapFromResource(getResources(), R.drawable.post_1, size.x, size.y);
+		Bitmap profilePic = PostEntry.decodeSampledBitmapFromResource(getResources(), R.drawable.profile_pic2, 50, 50);
 		float[] geoLoc = { 3.0f, 4.5f };
-		PostEntry post = new PostEntry(postImage, "Drink Like A True Midwesterner", 54, geoLoc, "JOSH_THE_GREAT");
+		PostEntry post = new PostEntry(postImage, "Drink Like A True Midwesterner", 54, geoLoc, "OZ_THE_GREAT", profilePic);
 		posts.add(post);
 		postImage = PostEntry.decodeSampledBitmapFromResource(getResources(), R.drawable.post_2, size.x, size.y);
-		post = new PostEntry(postImage, "Don't Run Me Over", 5, geoLoc, "GENERIC_USERNAME");
+		profilePic = PostEntry.decodeSampledBitmapFromResource(getResources(), R.drawable.profile_pic3, 50, 50);
+		post = new PostEntry(postImage, "Don't Run Me Over", 5, geoLoc, "GENERIC_USERNAME", profilePic);
 		posts.add(post);
 
 		hotPostAdapter = new PostListAdapter(this, posts);
@@ -248,7 +250,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 				postList.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				String selectedPostTitle = ((TextView) view.findViewById(R.id.postEntryTitle)).getText().toString();
+				//String selectedPostTitle = ((TextView) view.findViewById(R.id.postEntryTitle)).getText().toString();
 
 				//Popup up and down votes		
 				dialog.setContentView(R.layout.like_dialog);
@@ -259,13 +261,15 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 				upVote.setOnClickListener( new OnClickListener(){
 					public void onClick(View view){
 						//code to increment votes
+						dialog.hide();
 					}
 				});
 
 				ImageButton downVote = (ImageButton) dialog.findViewById(R.id.downVote);
 				downVote.setOnClickListener( new OnClickListener(){
 					public void onClick(View view){
-						//code to increment votes
+						//code to decrement votes
+						dialog.hide();
 					}
 				});
 			}
@@ -286,7 +290,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 		return new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				String selectedPostTitle = ((TextView) view.findViewById(R.id.postEntryTitle)).getText().toString();
+				//String selectedPostTitle = ((TextView) view.findViewById(R.id.postEntryTitle)).getText().toString();
 
 				//Popup up and down votes
 			

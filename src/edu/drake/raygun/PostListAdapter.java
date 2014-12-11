@@ -65,6 +65,7 @@ public class PostListAdapter extends BaseAdapter {
 	        postImage.setImageBitmap(post.getImage());
 	        postMessage.setText(post.getTitle());
 	        name.setText(post.getUsername());
+	        profilePic.setImageBitmap(post.getProfilePic());
 	 
 	        return convertView;
 	    }

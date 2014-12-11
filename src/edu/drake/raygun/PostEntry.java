@@ -11,17 +11,27 @@ public class PostEntry {
 	private float[] geoLocation = new float[2];
 	private String username;
 	private String locationName;
+	private Bitmap profilePic;
 	
-	public PostEntry(Bitmap image, String title, int votes, float[] geoLocation, String username) {
+	public PostEntry(Bitmap image, String title, int votes, float[] geoLocation, String username, Bitmap profilePic) {
 		this.image = image;
 		this.title = title;
 		this.votes = votes;
 		this.geoLocation = geoLocation;
 		this.username = username;
+		this.profilePic = profilePic;
 	}
 	
 	public String getUsername() {
 		return username;
+	}
+	
+	public void setProfilePic(Bitmap profilePic) {
+		this.profilePic = profilePic;
+	}
+	
+	public Bitmap getProfilePic() {
+		return profilePic;
 	}
 	
 	public void setUsername(String username) {
